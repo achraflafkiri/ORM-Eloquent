@@ -24,10 +24,8 @@ class ClientController extends Controller
    
     public function store(ClientRequest $request)
     {
-        // Validation passed, you can access validated data using the $request object
         $validatedData = $request->validated();
         
-        // Create a new client using the validated data
         $client = new Client([
             'id_clt' => $validatedData['id_clt'],
             'nom' => $validatedData['nom'],
@@ -35,31 +33,35 @@ class ClientController extends Controller
             'adresse' => $validatedData['adresse'],
         ]);
         
-        // Save the client to the database
         $client->save();
         
-        // Redirect or perform any additional actions
         return redirect()->route('clients.index');
     }
     
-    
-   
-    // public function show(Client $client)
-    // {
-    //     //
-    // }
 
-  
-    // public function edit(Client $client)
-    // {
-    //     //
-    // }
+    public function edit(Client $client, $id)
+    {
+        $client = Client::find($id);
+        return view('clients.edit', compact('client'));
+    }
 
    
-    // public function update(Request $request, Client $client)
-    // {
-    //     //
-    // }
+    public function update(ClientRequest $request, $id)
+    {
+       
+       $validatedData = $request->validated();
+
+        $client = Client::find($id);
+
+        $client->nom = $validatedData['nom'];
+        $client->prenom = $validatedData['prenom'];
+        $client->adresse = $validatedData['adresse'];
+
+        $client->save();
+
+        return redirect()->route('clients.index');
+    }
+
 
     // public function destroy(Client $client)
     // {

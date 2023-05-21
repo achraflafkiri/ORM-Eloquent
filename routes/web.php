@@ -20,6 +20,10 @@ Route::prefix('clients')->group(function () {
     Route::get('/', [ClientController::class, 'index'])->name("clients.index");
     Route::get('/new', [ClientController::class, 'create'])->name("clients.create");
     Route::post('/store', [ClientController::class, 'store'])->name("clients.store");
+    Route::get('{id}/edit', [ClientController::class, 'edit'])->name("clients.edit");
+    Route::put('{id}', [ClientController::class, 'update'])->name("clients.update");
 });
+
+
 
 

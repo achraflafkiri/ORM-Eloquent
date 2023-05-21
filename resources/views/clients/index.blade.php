@@ -17,6 +17,7 @@
                                 <th class="text-center">Last name</th>
                                 <th class="text-center">Address</th>
                                 <th class="text-center">Updated at</th>
+                                <th class="text-center">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -27,6 +28,11 @@
                                     <td class="text-center">{{ $clt->prenom }}</td>
                                     <td class="text-center">{{ $clt->adresse }}</td>
                                     <td class="text-center">{{ $clt->updated_at->diffForHumans() }}</td>
+                                    <td class="text-center">
+                                        <a href="{{ route('clients.edit', $clt->id_clt) }}" class="btn btn-inverse-success btn-icon">
+                                            <span class="mdi mdi-pencil"></span>
+                                        </a>
+                                    </td>
                                 </tr>
                             @empty
                                 <tr>
