@@ -19,7 +19,7 @@ Route::post('/register', [AuthController::class, 'processRegister'])->name('regi
 Route::prefix('clients')->group(function () {
     Route::get('/', [ClientController::class, 'index'])->name("clients.index");
     Route::get('/new', [ClientController::class, 'create'])->name("clients.create");
-    Route::get('/store', [ClientController::class, 'store'])->name("clients.store");
+    Route::post('/store', [ClientController::class, 'store'])->name("clients.store");
 });
 
 
