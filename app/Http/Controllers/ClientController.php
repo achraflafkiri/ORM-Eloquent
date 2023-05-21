@@ -61,11 +61,11 @@ class ClientController extends Controller
         return redirect(route('clients.index'));
     }
     
-    public function destroy(Client $client, $id)
+    public function destroy($id)
     {
-        dd("k");
-        $client = Client::where('id_clt', $id)->get()->first();
+        $client = Client::where('id_clt', $id)->first();
         $client->delete();
         return redirect(route('clients.index'));
     }
+    
 }
