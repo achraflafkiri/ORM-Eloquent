@@ -32,6 +32,9 @@
                                         <a href="{{ route('clients.edit', $clt->id_clt) }}" class="btn btn-inverse-success btn-icon">
                                             <span class="mdi mdi-pencil"></span>
                                         </a>
+                                        <a href="{{ route('clients.destroy', $clt->id_clt) }}" class="btn btn-inverse-danger btn-icon">
+                                            <span class="mdi mdi-trash-can-outline"></span>
+                                        </a>
                                     </td>
                                 </tr>
                             @empty

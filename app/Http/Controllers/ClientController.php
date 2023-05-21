@@ -24,8 +24,10 @@ class ClientController extends Controller
    
     public function store(ClientRequest $request)
     {
+        // Validation passed, you can access validated data using the $request object
         $validatedData = $request->validated();
         
+        // Create a new client using the validated data
         $client = new Client([
             'id_clt' => $validatedData['id_clt'],
             'nom' => $validatedData['nom'],
@@ -33,38 +35,37 @@ class ClientController extends Controller
             'adresse' => $validatedData['adresse'],
         ]);
         
+        // Save the client to the database
         $client->save();
         
+        // Redirect or perform any additional actions
         return redirect()->route('clients.index');
     }
-    
 
+    
     public function edit(Client $client, $id)
     {
-        $client = Client::find($id);
+        $client  = Client::find($id);
         return view('clients.edit', compact('client'));
     }
 
    
-    public function update(ClientRequest $request, $id)
+    public function update(Request $request, $id)
     {
-       
-       $validatedData = $request->validated();
-
-        $client = Client::find($id);
-
-        $client->nom = $validatedData['nom'];
-        $client->prenom = $validatedData['prenom'];
-        $client->adresse = $validatedData['adresse'];
-
-        $client->save();
-
-        return redirect()->route('clients.index');
+        $client = Client::where('id_clt', $id)->get()->first();
+        $client->update([
+            'nom' => request('nom'),
+            'prenom' => request('prenom'),
+            'adresse' => request('adresse')
+        ]);
+        return redirect(route('clients.index'));
     }
-
-
-    // public function destroy(Client $client)
-    // {
-    //     //
-    // }
+    
+    public function destroy(Client $client, $id)
+    {
+        dd("k");
+        $client = Client::where('id_clt', $id)->get()->first();
+        $client->delete();
+        return redirect(route('clients.index'));
+    }
 }
