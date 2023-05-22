@@ -10,12 +10,12 @@
                 <div class="card-body">
             <div class="d-flex align-items-center justify-content-between">
             <div>
-                <h1>Name: {{ $client->nom }} {{  $client->prenom }}</h1>
-                <p class="text-dark">Address: {{ $client->adresse }}</p>
-                <p class="text-dark">Updated at: {{ $client->updated_at->diffForHumans() }}</p>
+                <h1>Designation: {{ $product->designation }} </h1>
+                <p>Qte stock: {{ $product->qte_stock }}</p>
+                <p>Updated at: {{ $product->updated_at->diffForHumans() }}</p>
             </div>
             <div>
-                <a href="{{ route('clients.index') }}" class="btn btn-inverse-info btn-fw">Back</a>
+                <a href="{{ route('products.index') }}" class="btn btn-inverse-info btn-fw">Back</a>
             </div>
             </div>
                     <h3>List of commands</h3>
@@ -27,16 +27,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($commandes as $com)
                             <tr>
-                                <td class="text-center">{{ $com->numero }}</td>
-                                <td class="text-center">{{ $com->date_cmd }}</td>
+                                <td class="text-center">1</td>
+                                <td class="text-center">01-11-2028</td>
                             </tr>
-                            @empty
                             <tr>
-                                <td class="text-center">No commandes found</td>
+                                <td class="text-center">2</td>
+                                <td class="text-center">12-12-2026</td>
                             </tr>
-                            @endforelse
+                            <tr>
+                                <td class="text-center">3</td>
+                                <td class="text-center">12-02-2024</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

@@ -24,7 +24,8 @@
           </a>
           <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
             <a class="dropdown-item" href="#">
-              <i class="mdi mdi-account-card-details me-2 text-success"></i> Profile </a>
+              <span class="mdi mdi-account"></span>
+              Profile </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">
               <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
