@@ -42,6 +42,11 @@ class ClientController extends Controller
         return redirect()->route('clients.index');
     }
 
+    public function show($id){
+        $client = Client::find($id);
+        return view('clients.show', compact('client'));
+    }
+
     
     public function edit(Client $client, $id)
     {

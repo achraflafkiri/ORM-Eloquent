@@ -23,6 +23,7 @@ Route::prefix('clients')->group(function () {
     Route::get('{id}/edit', [ClientController::class, 'edit'])->name("clients.edit");
     Route::put('{id}', [ClientController::class, 'update'])->name("clients.update");
     Route::delete('{id}', [ClientController::class, 'destroy'])->name("clients.destroy");
+    Route::get('{id}', [ClientController::class, 'show'])->name("clients.show");
 });
 
 
