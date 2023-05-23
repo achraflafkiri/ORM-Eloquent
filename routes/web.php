@@ -49,7 +49,3 @@ Route::prefix('commandes')->group(function () {
     Route::delete('{id}', [CommandeController::class, 'destroy'])->name("commandes.destroy");
     Route::get('{id}', [CommandeController::class, 'show'])->name("commandes.show");
 });
-
-
-
-

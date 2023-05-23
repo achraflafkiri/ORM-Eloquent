@@ -10,7 +10,7 @@
                 <div class="card-body">
             <div class="d-flex align-items-center justify-content-between">
             <div>
-                <h1>Designation: {{ $product->designation }} </h1>
+                <h1>Designation: {{ $product->designations }} </h1>
                 <p>Qte stock: {{ $product->qte_stock }}</p>
                 <p>Updated at: {{ $product->updated_at->diffForHumans() }}</p>
             </div>

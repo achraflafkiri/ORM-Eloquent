@@ -19,7 +19,7 @@
                                 @forelse ($clients as $clt)
                                 <option value="{{ $clt->id_clt }}">{{ $clt->nom }}</option>
                                 @empty
-                                <option value="1">No clients added yet</option>
+                                <option value="1" @readonly(true)>No clients added yet</option>
                                 @endforelse
                             </select>
                         </div>

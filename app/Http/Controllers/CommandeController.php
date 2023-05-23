@@ -12,7 +12,7 @@ class CommandeController extends Controller
     public function index()
     {
         $commandes = Commande::all();
-        return view('commandes.index', compact('commandes'));
+        return view("commandes.index", compact('commandes'));
     }
     
     
@@ -43,32 +43,34 @@ class CommandeController extends Controller
     }
 
     public function show($id){
-        $commande = Commande::find($id);
+        $commande = Commande::where('numero', $id)->get()->first();
         return view('commandes.show', compact('commande'));
     }
 
     
-    public function edit(Commande $commande, $id)
+    public function edit($id)
     {
-        $commande  = Commande::find($id);
-        return view('commandes.edit', compact('commande'));
+        $clients = Client::all();
+        $commande  = Commande::where('numero', $id)->get()->first();
+        return view('commandes.edit',['commande'=>$commande, 'clients' => $clients]);
     }
 
    
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        $commande = Commande::where('', $id)->get()->first();
+        $commande = Commande::where('numero', $id)->get()->first();
+
         $commande->update([
             "numero" => request('numero'),
             "date_cmd" => request('date_cmd'),
-            "client_id_clt" => request('adresse')
+            "client_id_clt" => request('client_id_clt')
         ]);
         return redirect(route('commandes.index'));
     }
     
     public function destroy($id)
     {
-        $commande = Commande::where('', $id)->first();
+        $commande = Commande::where('numero', $id)->get()->first();
         $commande->delete();
         return redirect(route('commandes.index'));
     }

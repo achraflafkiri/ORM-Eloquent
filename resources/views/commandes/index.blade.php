@@ -15,8 +15,7 @@
                                 <th class="text-center">Numero</th>
                                 <th class="text-center">Date_cmd</th>
                                 <th class="text-center">Client</th>
-                                <th class="text-center">Edit</th>
-                                <th class="text-center">Delete</th>
+                                <th class="text-center">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -29,8 +28,7 @@
                                         <a href="{{ route('commandes.edit', $cmd->numero) }}" class="btn btn-inverse-success btn-icon">
                                             <span class="mdi mdi-pencil"></span>
                                         </a>
-                                    </td>
-                                    <td class="text-center">
+                                        
                                         <form action="{{ route('commandes.destroy', $cmd->numero) }}" method="POST" style="display: inline;">
                                             @csrf
                                             @method('DELETE')
